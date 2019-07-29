@@ -20,7 +20,7 @@ I used the notebook to first write all the code and experiment(as well as train 
 I've trained two models, one on The Scream and one on Starry Night. They're saved in the files `scream.pth.tar` & `starry_night.pth.tar` and an explanation of how they can be accessed is in `predict.py`(also shown at the bottom of the notebook). You can also *slowly* generate images in any style using `slowNST.py`. Also, you can stylize gifs!
 
 ## Gifs you say?
-Yeah! Any model you train on stylizing images can also be applied to gifs(and in theory videos, although currently I haven't coded support for that) Here are a couple gifs that were generated using the trained models. The code can be found in `predict.py`.
+Yeah! Any model you train on stylizing images can also be applied to gifs(and in theory videos, although currently I haven't coded support for that). Here are a couple gifs that were generated using the trained models. The code can be found in `predict.py`.
 
 | Orginal | Scream | Starry Night|
 | ---- | ---- | ---- |
