@@ -9,10 +9,11 @@ import torchvision
 A collection of useful methods
 '''
 
-def get_img(path='Data/starry-night.jpg'):
+
+def get_img(path='Data/starry-night.jpg', resize=True):
     img = Image.open(path)
-    img = img.resize((256, 256))
-    plt.imshow(img)
+    if resize:
+        img = img.resize((256, 256))
     img = transforms.ToTensor()(img)
     img = torch.unsqueeze(img, 0)
     return img
@@ -20,6 +21,7 @@ def get_img(path='Data/starry-night.jpg'):
 
 def save_checkpoint(state, filename='checkpoint.pth.tar'):
     torch.save(state, filename)
+
 
 # Used to initialize the weights for a model
 def init_weights(m):

@@ -11,9 +11,10 @@ artifacts in the generated images. This class is purely for reproducibility in g
 
 class ImageTransNetDeprecated(nn.Module):
 
-    def __init__(self):
+    def __init__(self, shape=(256, 256)):
         # Takes in an RGB image, in training this image will be 256 x 256
         super(ImageTransNetDeprecated, self).__init__()
+        height, width = shape # shape is a two dimension tuple of the dimensions of the image
         self.pad = nn.ZeroPad2d((1, 0, 1, 0))
 
         self.conv1 = nn.Conv2d(3, 32, kernel_size=9, stride=1, padding=4)
@@ -31,8 +32,8 @@ class ImageTransNetDeprecated(nn.Module):
         self.res4 = ResBlockDeprecated()
         self.res5 = ResBlockDeprecated()
 
-        self.upsample_conv1 = UpsampleConvDeprecated((128, 128), 128, 64, mode='nearest')
-        self.upsample_conv2 = UpsampleConvDeprecated((256, 256), 64, 32, mode='nearest')
+        self.upsample_conv1 = UpsampleConv((int(height / 2), int(width / 2)), 128, 64, mode='nearest')
+        self.upsample_conv2 = UpsampleConv((height, width), 64, 32, mode='nearest')
 
         self.conv4 = nn.Conv2d(32, 3, kernel_size=9, stride=1, padding=4)
         self.norm3 = nn.InstanceNorm2d(3)

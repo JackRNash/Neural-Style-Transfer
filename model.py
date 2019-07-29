@@ -7,9 +7,10 @@ Use to build the image transformation network. Explanation of existence of model
 
 class ImageTransNet(nn.Module):
 
-    def __init__(self):
+    def __init__(self, shape=(256, 256)):
         # Takes in an RGB image, in training this image will be 256 x 256
         super(ImageTransNet, self).__init__()
+        height, width = shape
         self.pad1 = nn.ReflectionPad2d(4)
         self.pad2 = nn.ReflectionPad2d((1, 0, 1, 0))
 
@@ -28,13 +29,13 @@ class ImageTransNet(nn.Module):
         self.res4 = ResBlock()
         self.res5 = ResBlock()
 
-        self.upsample_conv1 = UpsampleConv((128, 128), 128, 64, mode='nearest')
-        self.upsample_conv2 = UpsampleConv((256, 256), 64, 32, mode='nearest')
+        self.upsample_conv1 = UpsampleConv((int(height/2), int(width/2)), 128, 64, mode='nearest')
+        self.upsample_conv2 = UpsampleConv((height, width), 64, 32, mode='nearest')
 
         self.conv4 = nn.Conv2d(32, 3, kernel_size=9, stride=1)
         self.norm3 = nn.InstanceNorm2d(3)
 
-    def forward(self, x_in, dimensions=(256, 256)):
+    def forward(self, x_in):
         x = self.conv1(self.pad1(x_in))
         x = F.relu(self.norm32(x))
 
