@@ -17,7 +17,14 @@ I thought it sounded cool and wanted to learn about / put into practice computer
 I used the notebook to first write all the code and experiment(as well as train the model in the notebook using Google Colab). It explains the project step by step. The python files are for reproducibility. Since a Jupyter notebook can run things multiple times and out of order, it's not a very reliable way of generating a model. The python files aim to simplify things and make the process more reproducable.
 
 ## What styles can I apply to my images?
-I've trained two models, one on The Scream and one on Starry Night. They're saved in the files `scream.pth.tar` & `starry_night.pth.tar` and an explanation of how they can be accessed is in `predict.py`(also shown at the bottom of the notebook). You can also *slowly* generate images in any style using `slowNST.py`.
+I've trained two models, one on The Scream and one on Starry Night. They're saved in the files `scream.pth.tar` & `starry_night.pth.tar` and an explanation of how they can be accessed is in `predict.py`(also shown at the bottom of the notebook). You can also *slowly* generate images in any style using `slowNST.py`. Also, you can stylize gifs!
+
+## Gifs you say?
+Yeah! Any model you train on stylizing images can also be applied to gifs(and in theory videos, although currently I haven't coded support for that) Here are a couple gifs that were generated using the trained models. The code can be found in `predict.py`.
+
+| Orginal | Scream | Starry Night|
+| ---- | ---- | ---- |
+| ![](Data/sky.gif)| ![](Data/gif_examples/sky_stylized_scream.gif) | ![](Data/gif_examples/sky_stylized_starry_night.gif) |
 
 ## Other notes
 The mscoco dataset was used to train this model. It is not included in the github. If you wish to use this code to train a model for yourself, you'll need to download the [2014 training images](http://cocodataset.org/#download). It's a big file!
