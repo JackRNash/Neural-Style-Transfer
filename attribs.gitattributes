@@ -1,0 +1,2 @@
+# Reclassify Jupyter Notebooks
+*.ipynb linguist-language=Python
