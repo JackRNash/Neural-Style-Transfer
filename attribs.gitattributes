@@ -1,2 +1,3 @@
-# Reclassify Jupyter Notebooks
-*.ipynb linguist-language=Python
+# Fix repo language
+* linguist-vendored
+*.py linguist-vendored=false
