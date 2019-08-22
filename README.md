@@ -1,4 +1,5 @@
 # Neural-Style-Transfer
+##### by Jack Nash
 An implementation of fast (& slow) neural style transfer
 
 This work is explained in the jupyter notebook titled `NST_Pytorch.ipnyb`. I recommend reading it for the best understanding of this project.
